@@ -6,3 +6,9 @@ Items.xlsx > APP_INTERACTIONS_INTERACTIONS_ITEMS
 Service consumption examples:
 https://w0y1siu1facseb49-nodecapxsa-srv.cfapps.us10.hana.ondemand.com/catalog/$metadata
 https://w0y1siu1facseb49-nodecapxsa-srv.cfapps.us10.hana.ondemand.com/catalog/Interactions_Items?$search=DE
+
+MTA Descriptor:
+https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/2.0.03/en-US/4050fee4c469498ebc31b10f2ae15ff2.html
+
+Resolve CORS issue:
+https://sapui5.hana.ondemand.com/#/topic/5bb388fc289d44dca886c8fa25da466e.html

@@ -14,7 +14,6 @@ entity Interactions_Header {
 };
 
 entity Interactions_Items {
-
 	key INTHeader : association to Interactions_Header;
 	key TEXT_ID : BusinessKey;
 		LANGU	: String(2);

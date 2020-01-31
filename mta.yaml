@@ -1,7 +1,9 @@
 ID: NodeCapXSA
-_schema-version: "2.1"
+_schema-version: '2.1'
 version: 0.0.1
+
 modules:
+
   - name: NodeCapXSA-db
     type: hdb
     path: db
@@ -10,20 +12,39 @@ modules:
       disk-quota: 256M
     requires:
       - name: NodeCapXSA-db-hdi-container
+
   - name: NodeCapXSA-srv
     type: nodejs
     path: srv
     parameters:
       memory: 512M
       disk-quota: 256M
-    provides:
-      - name: srv_api
-        properties:
-          url: ${default-url}
     requires:
       - name: NodeCapXSA-db-hdi-container
+
+  - name: web
+    type: html5
+    path: web
+    parameters:
+       disk-quota: 256M
+       memory: 256M
+    build-parameters:
+       builder: grunt
+    requires:
+     - name: uaa_NodeCapXSA
+
 resources:
+
   - name: NodeCapXSA-db-hdi-container
     type: com.sap.xs.hdi-container
     properties:
-      hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
+
+
+  - name: uaa_NodeCapXSA
+    parameters:
+       path: ./xs-security.json
+       service-plan: application
+       service: xsuaa
+    type: org.cloudfoundry.managed-service
+
